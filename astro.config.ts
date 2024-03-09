@@ -9,13 +9,13 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time";
 import icon from "astro-icon";
 import expressiveCode from "astro-expressive-code";
 import { expressiveCodeOptions } from "@/site-config";
-import vercel from '@astrojs/vercel/serverless';
+import vercelServerless from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
   output: 'server',
-  adapter: vercel(),
+  adapter: vercelServerless(),
 	site: "https://blopez.dev/",
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
