@@ -1,25 +1,26 @@
-*.class
+# build output
+dist/
+.output/
 
-# Package Files #
-*.jar
-*.war
+# dependencies
+node_modules/
 
-# gwt caches and compiled units #
-war/gwt_bree/
-gwt-unitCache/
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# boilerplate generated classes #
-.apt_generated/
 
-# more caches and things from deploy #
-war/WEB-INF/deploy/
-war/WEB-INF/classes/
+# environment variables
+.env
+.env.production
 
-#compilation logs
-.gwt/
+# macOS-specific files
+.DS_Store
 
-#gwt junit compilation files
-www-test/
-
-#old GWT (1.5) created this dir
-.gwt-tmp/
+# misc
+*.pem
+.cache
+.astro
+.idea
