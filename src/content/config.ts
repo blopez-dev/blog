@@ -1,36 +1,39 @@
-import { z, defineCollection } from "astro:content";
+// 1. Import utilities from `astro:content`
+import { z, defineCollection } from 'astro:content';
 
-function removeDupsAndLowerCase(array: string[]) {
-	if (!array.length) return array;
-	const lowercaseItems = array.map((str) => str.toLowerCase());
-	const distinctItems = new Set(lowercaseItems);
-	return Array.from(distinctItems);
-}
-
-const post = defineCollection({
-	type: "content",
-	schema: ({ image }) =>
-		z.object({
-			title: z.string().max(60),
-			description: z.string().min(50).max(160),
-			publishDate: z
-				.string()
-				.or(z.date())
-				.transform((val) => new Date(val)),
-			updatedDate: z
-				.string()
-				.optional()
-				.transform((str) => (str ? new Date(str) : undefined)),
-			coverImage: z
-				.object({
-					src: image(),
-					alt: z.string(),
-				})
-				.optional(),
-			draft: z.boolean().default(false),
-			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-			ogImage: z.string().optional(),
-		}),
+// 2. Define your collection(s)
+const blogCollection = defineCollection({
+  schema: z.object({
+    draft: z.boolean(),
+    title: z.string(),
+    snippet: z.string(),
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    publishDate: z.string().transform(str => new Date(str)),
+    author: z.string().default('Astroship'),
+    category: z.string(),
+    tags: z.array(z.string()),
+  }),
 });
 
-export const collections = { post };
+const teamCollection = defineCollection({
+  schema: z.object({
+    draft: z.boolean(),
+    name: z.string(),
+    title: z.string(),
+    avatar: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    publishDate: z.string().transform(str => new Date(str)),
+  }),
+});
+
+// 3. Export a single `collections` object to register your collection(s)
+//    This key should match your collection directory name in "src/content"
+export const collections = {
+  'blog': blogCollection,
+  'team': teamCollection,
+};

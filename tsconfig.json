@@ -1,37 +1,16 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": ".",
-    "lib": [
-      "es2022",
-      "dom",
-      "dom.iterable"
-    ],
+    "baseUrl": "src",
+    "strictNullChecks": true,
+    "types": ["astro/client"],
     "paths": {
-      "@/assets/*": [
-        "src/assets/*"
-      ],
-      "@/components/*": [
-        "src/components/*"
-      ],
-      "@/layouts/*": [
-        "src/layouts/*"
-      ],
-      "@/utils": [
-        "src/utils/index.ts"
-      ],
-      "@/types": [
-        "src/types.ts"
-      ],
-      "@/site-config": [
-        "src/site.config.ts"
-      ]
+      "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*": ["pages/*"]
     }
-  },
-  "exclude": [
-    "node_modules",
-    "**/node_modules/*",
-    ".vscode",
-    "dist"
-  ]
+  }
 }
