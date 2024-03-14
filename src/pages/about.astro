@@ -1,10 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/hero.astro"
 import Link from "../components/ui/link.astro";
 ---
 
-<BaseLayout title="About | Stefan Gogov" description="About Stefan Gogov">
+<BaseLayout title="About | Pablo J. García" description="About Pablo José García">
   <div class="stack gap-20">
+    <header class="wrapper hero">
+      <Hero
+        align="center"
+        title="About Me"
+        tagline="a summary about me"
+      />
+      <img
+        alt="illustration of a men coding web projects"
+        src="/src/assets/illustrations/about.png"
+      />
+    </header>
     <main class="wrapper about">
       <section>
         <h2 class="section-title">Background</h2>
@@ -27,38 +39,54 @@ import Link from "../components/ui/link.astro";
             I'm truly thrilled to be on this journey of exploration and growth.
             I'm always seeking new opportunities to expand my abilities and make
             a positive impact through technology. Thanks for getting to know a
-            bit about me! 😊
+            bit about me!
           </p>
         </div>
       </section>
-      <!--<section>
+      <section>
         <h2 class="section-title">Education</h2>
         <div class="content">
-          <p>
-            🎓 Plovdiv University "Paisii Hilendarski" (2022 - Present) in
-            Software technologies and design
-          </p>
-          <p>
-            🎓 St. St Cyril and Metodiy High School Asenovgrad (2017 - 2022)
-          </p>
-        </div>
-      </section>-->
-      <section>
-        <h2 class="section-title">Skills</h2>
-        <div class="content">
-          <p>JavaScript, TypeScript, React, NodeJS, GraphQL, SQL, C#</p>
+          <p>🎓 Master in full stack development in Isdi Coders. Barcelona. 2021.</p>
+          <p>🎓 Higher course in web design and development at Arte Granada school. Granada. <span>(2017 - 2018)</span></p>
+          <p>🎓 Bachelor's degree in Multimedia Graphic Design at the School of Art and Design of Valencia. Valencia. <span>(2014 - 2018)</span></p>
+          <p>🎓 Bachelor's degree in Business Administration and Management. University of Granada. <span>(2007 - 2013)</span></p>
         </div>
       </section>
       <section>
-        <Link class="link" href="/projects" style="rounded">
-          <span> See My Projects </span>
-        </Link>
+        <h2 class="section-title">Skills</h2>
+        <div class="content_columns">
+          <div class="content_columns_element">
+            <h3 class="section-list">As Frontend developer</h3>
+            <ul>
+              <li>Javascript</li>
+              <li>React</li>
+              <li>Typescript</li>
+              <li>Redux</li>
+              <li>Styled-components</li>
+            </ul>
+          </div>
+          <div class="content_columns_element">
+            <h3 class="section-list">As Backend developer</h3>
+            <ul>
+              <li>Javascript</li>
+              <li>React</li>
+              <li>Typescript</li>
+              <li>Redux</li>
+              <li>Styled-components</li>
+            </ul>
+          </div>
+        </div>
       </section>
     </main>
   </div>
 </BaseLayout>
 
 <style lang="scss">
+  .wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
   .hero {
     display: flex;
     flex-direction: column;
@@ -69,7 +97,7 @@ import Link from "../components/ui/link.astro";
 
     img {
       width: 100%;
-      max-width: 22rem;
+      max-width: 25rem;
     }
   }
 
@@ -94,16 +122,40 @@ import Link from "../components/ui/link.astro";
 
   .section-title {
     grid-column-start: 1;
-    font-size: var(--text-xl);
-    color: var(--gray-0);
+    font-size: var(--text-md);
+    color: var(--ocean-0);
   }
 
-  .content {
-    grid-column: 2 / 4;
 
+  .content {
+    font-size: var(--text-base);
+    grid-column: 2 / 4;
+    color: var(--gray-200);
     p:not(:last-child) {
       margin-bottom: 1rem;
     }
+  }
+  .content_columns{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 80%;
+    .content_columns_element{
+      margin: 10px 40px 10px 0;
+      ul{
+        li{
+          font-size: var(--text-base);
+        }
+      }
+    }
+  }
+  .section-list{
+    grid-column-start: 2;
+    font-size: var(--text-base);
+    color: var(--ocean-0);
+    margin:10px 0;
+
   }
 
   @media (min-width: 50em) {
@@ -123,3 +175,4 @@ import Link from "../components/ui/link.astro";
     }
   }
 </style>
+
