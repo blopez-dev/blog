@@ -1,7 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/hero.astro"
 import Link from "../components/ui/link.astro";
+
+import about from "../assets/illustrations/about.png"
 ---
 
 <BaseLayout title="About | Pablo J. García" description="About Pablo José García">
@@ -12,10 +15,7 @@ import Link from "../components/ui/link.astro";
         title="About Me"
         tagline="a summary about me"
       />
-      <img
-        alt="illustration of a men coding web projects"
-        src="/src/assets/illustrations/about.png"
-      />
+      <Image src={about} alt="illustration of a men coding web projects" width="auto" height="auto"/>
     </header>
     <main class="wrapper about">
       <section>
