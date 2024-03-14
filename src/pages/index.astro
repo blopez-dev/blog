@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Container from "@components/container.astro";
-import { Picture } from "astro:assets";
+
+import { Image } from 'astro:assets';
 import Hero from "@components/hero.astro";
+import hero from "../assets/hero.png"
 ---
 
 <BaseLayout title="Home | Pablo J. García" description="Pablo José García | Frontend Developer">
@@ -13,12 +15,7 @@ import Hero from "@components/hero.astro";
         title="Hi!, I'm Pablo J. García"
         tagline="Frontend developer"
       />
-      <Picture
-        src="/src/assets/hero.png"
-        alt="illustration of a men coding web projects"
-        width="auto"
-        height="auto"
-      />
+      <Image src={hero} alt="A bird." width="auto" height="auto"/>
 
     </header>
 
