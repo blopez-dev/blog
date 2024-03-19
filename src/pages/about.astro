@@ -4,14 +4,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/hero.astro"
 import Link from "../components/ui/link.astro";
 
-import about from "../assets/illustrations/about.png"
+import about from "../assets/about.gif"
 ---
 
 <BaseLayout title="About | Pablo J. García" description="About Pablo José García">
   <div class="stack gap-20">
     <header class="wrapper hero">
       <Hero
-        align="center"
+        align="left"
         title="About Me"
         tagline="a summary about me"
       />
@@ -89,15 +89,15 @@ import about from "../assets/illustrations/about.png"
   }
   .hero {
     display: flex;
-    flex-direction: column;
+    flex-flow: row wrap;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
     padding-inline: 2.5rem;
     gap: 1.5rem;
-
+    min-height: calc(100vh - 246px);
     img {
       width: 100%;
-      max-width: 25rem;
+      max-width: 35rem;
     }
   }
 
